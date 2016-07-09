@@ -23,8 +23,8 @@ namespace Fib
 
         private static IEnumerable<int> Fib(int num)
         {
-            var arr = new int[num + 1];
-            Fib(num, ref arr);
+            var arr = new int[num];
+            Fib(num - 1, ref arr);
             return arr;
         }
 
