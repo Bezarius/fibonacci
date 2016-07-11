@@ -11,29 +11,23 @@ namespace Fib
             if (num <= 1)
             {
                 arr[num] = num;
-                return 1;
+                return num;
             }
-
-            var res = Fib(num - 1, ref arr) + Fib(num - 2, ref arr);
-
-            arr[num] = res;
-
-            return res;
+            arr[num] = Fib(num - 1, ref arr) + Fib(num - 2, ref arr);
+            return arr[num];
         }
 
         private static IEnumerable<int> Fib(int num)
         {
-            var arr = new int[num];
-            Fib(num - 1, ref arr);
+            var arr = new int[num + 1];
+            Fib(num, ref arr);
             return arr;
         }
 
         static void Main(string[] args)
         {
             foreach (var fibVal in Fib(10))
-            {
                 Console.WriteLine(fibVal);
-            }
             Console.ReadKey();
         }
     }
